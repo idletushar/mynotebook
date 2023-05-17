@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const mongoURI = "mongodb://127.0.0.1:27017/?directConnection=true";
+const mongoURI = "mongodb://127.0.0.1:27017/mynotebook?directConnection=true";
 // localhost to 127.0.0.1 because of an error
 
 const connectToMongo = async ()=>{
