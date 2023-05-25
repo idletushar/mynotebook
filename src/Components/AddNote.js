@@ -8,8 +8,9 @@ const AddNote = () => {
     const [note, setNote] = useState({title: "", tag: "", description: ""})
 
     const handleOnClick = (e)=>{
-        e.preventDefault()
+        e.preventDefault();
         addNote(note.title, note.description, note.tag);
+        setNote({title: "", tag:"", description: ""});
     }
 
 
@@ -25,21 +26,17 @@ const AddNote = () => {
                 <form>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Title</label>
-                        <input type='text' className="form-control" name='title' id="title" onChange={onChange}></input>
+                        <input type='text' className="form-control" name='title' id="title" onChange={onChange} minLength={3} value={note.title} required></input>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="tag" className="form-label">Tag</label>
-                        <input type='text' className="form-control" id='tag' name='tag' onChange={onChange}></input>
+                        <input type='text' className="form-control" id='tag' name='tag' value={note.tag} onChange={onChange}></input>
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="description" className="form-label">Descripyion</label>
-                        <textarea className="form-control" id="description" onChange={onChange} name='description' rows="4"></textarea>
+                        <label htmlFor="description" className="form-label">Description</label>
+                        <textarea className="form-control" id="description" onChange={onChange} name='description' rows="4" minLength={8} value={note.description} required></textarea>
                     </div>
-                    {/* <div className="mb-3 form-check">
-                        <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                        <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                    </div> */}
-                    <button type="submit" className="btn btn-primary" onClick={handleOnClick}>Add Note</button>
+                    <button disabled={note.title.length<3} type="submit" className="btn btn-success" onClick={handleOnClick}>Add Note</button>
                 </form>
             </div>
 
