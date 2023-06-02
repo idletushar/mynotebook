@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
     const [credentials, setCredentials] = useState({email: "", password: ""}) 
@@ -35,6 +35,7 @@ const Login = () => {
 
     return (
         <div>
+            <h1>LogIn</h1>
             <form  onSubmit={handleSubmit}>
                 <div className="form-outline mb-3">
                     <label className="form-label" htmlFor="email">Email address</label>
